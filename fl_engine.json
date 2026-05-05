@@ -1,0 +1,53 @@
+{
+  "author": "Ziad Salah",
+  "attempt": "Foster-Lyapunov for Collatz",
+  "verdict": "FL_UNPROVABLE_VIA_CURRENT_PATH (1 gate(s) FAIL)",
+  "fl_tci": 0.8338438557194962,
+  "gates": [
+    {
+      "gate": "DriftConsistency",
+      "score": 0.048564889368940635,
+      "status": "PROVEN",
+      "detail": "mean_drift=-0.56628 target=-0.41504 pct_below_log23=0.0000"
+    },
+    {
+      "gate": "StoppingTime",
+      "score": 0.5,
+      "status": "EMPIRICAL",
+      "detail": "max_ratio=8.000  mean=0.526  K_empirical=8.0  [CANNOT PROVE \u2014 k_max unbounded]"
+    },
+    {
+      "gate": "CantorFiniteness",
+      "score": 0.85,
+      "status": "PROVEN",
+      "detail": "k_max finite per n: PROVEN. k_max uniformly bounded: FALSE. Construction: n\u2261-5 mod 2^{3K+1} has k_max=K for any K. Verified k=1..10."
+    },
+    {
+      "gate": "OptionB",
+      "score": 0.001,
+      "status": "FAILS",
+      "detail": "Option B (escape_v2\u2265k+2) FAILS. Violations: 165/180 tested. Escape v2 can be 1,2,3 regardless of k. Theorem RT gives escape_v2\u22652 but NOT \u2265k+2."
+    },
+    {
+      "gate": "ErgodicityDependence",
+      "score": 0.45,
+      "status": "OPEN",
+      "detail": "NN R\u00b2=-0.0001\u22480: time-avg not predictable from n [EMPIRICAL]. Suggests ergodicity holds. But: using E[drift]=-0.415 for recovery steps in FL proof REQUIRES formal ergodicity, which \u2261 the conjecture itself. CIRCULAR without a new argument."
+    }
+  ],
+  "proven": {
+    "space_avg_drift": -0.4150374992788439,
+    "k_max_finite_per_n": true
+  },
+  "empirical": {
+    "T_n_leq_K_log_n": true,
+    "empirical_K": 8.0,
+    "zero_trajectories_below_log23": false
+  },
+  "gaps": {
+    "G1_k_max_unbounded": "Construction: n\u2261-5 mod 2^{3K+1} has k_max=K for any K",
+    "G2_option_b_fails": "escape_v2\u2262k+2. RT gives \u22652 only.",
+    "G3_ergodicity_circular": "Using space-avg drift requires ergodicity = conjecture"
+  },
+  "conjecture": "OPEN"
+}
